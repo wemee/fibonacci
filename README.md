@@ -3,7 +3,7 @@ Fibonacci
 
 Fibonacci number generator for ruby.
 
-# Code Example:
+## Code Example:
 
     # Put the fibonacci.rb into your project
     require _YOUR_PROJECT_PATH_ + '/fibonacci.rb'
