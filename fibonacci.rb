@@ -1,22 +1,24 @@
 module Fibonacci
 	private
-	def self.fibonacci n
+	def fibonacci n
 		return n if n<0
-		return @fibonacci_ary[n]  if(!@fibonacci_ary[n].nil?)
-		@fibonacci_ary[n] = self.fibonacci(n-1) + self.fibonacci(n-2)
+		return @num_cache[n]  if(!@num_cache[n].nil?)
+		@num_cache[n] = fibonacci(n-1) + fibonacci(n-2)
 	end
 
 	public
-	def self.find_at n
-		@fibonacci_ary ||= [0, 0, 1]
+	def find_at n
+		@num_cache ||= [0, 0, 1]
 		return n if n<0
-		return @fibonacci_ary[n]  if(!@fibonacci_ary[n].nil?)
-		@fibonacci_ary[n] = self.fibonacci(n-1) + self.fibonacci(n-2)
+		return @num_cache[n]  if(!@num_cache[n].nil?)
+		@num_cache[n] = fibonacci(n-1) + fibonacci(n-2)
 	end
 
-	def self.ary_to n
-		@fibonacci_ary ||= [0, 0, 1]
-		self.find_at(n) if @fibonacci_ary.length-1 < n
-		return @fibonacci_ary[1..n]
+	def ary_to n
+		@num_cache ||= [0, 0, 1]
+		find_at(n) if @num_cache.length-1 < n
+		return @num_cache[1..n]
 	end
+
+	module_function :fibonacci, :find_at, :ary_to
 end
