@@ -1,9 +1,9 @@
 module Fibonacci
 	private
-	def fibonacci n
+	def recursive_finding! n
 		return n if n<0
 		return @num_cache[n]  if(!@num_cache[n].nil?)
-		@num_cache[n] = fibonacci(n-1) + fibonacci(n-2)
+		@num_cache[n] = recursive_finding!(n-1) + recursive_finding!(n-2)
 	end
 
 	public
@@ -11,7 +11,7 @@ module Fibonacci
 		@num_cache ||= [0, 0, 1]
 		return n if n<0
 		return @num_cache[n]  if(!@num_cache[n].nil?)
-		@num_cache[n] = fibonacci(n-1) + fibonacci(n-2)
+		@num_cache[n] = recursive_finding!(n-1) + recursive_finding!(n-2)
 	end
 
 	def ary_to n
@@ -20,5 +20,5 @@ module Fibonacci
 		return @num_cache[1..n]
 	end
 
-	module_function :fibonacci, :find_at, :ary_to
+	module_function :recursive_finding!, :find_at, :ary_to
 end
