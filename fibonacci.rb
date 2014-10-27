@@ -2,7 +2,7 @@ module Fibonacci
 	private
 	def recursive_finding! n
 		return n if n<0
-		return @num_cache[n]  if(!@num_cache[n].nil?)
+		return @num_cache[n]  if @num_cache[n]
 		@num_cache[n] = recursive_finding!(n-1) + recursive_finding!(n-2)
 	end
 
@@ -10,7 +10,7 @@ module Fibonacci
 	def find_at n
 		@num_cache ||= [0, 0, 1]
 		return n if n<0
-		return @num_cache[n]  if(!@num_cache[n].nil?)
+		return @num_cache[n]  if @num_cache[n]
 		@num_cache[n] = recursive_finding!(n-1) + recursive_finding!(n-2)
 	end
 
